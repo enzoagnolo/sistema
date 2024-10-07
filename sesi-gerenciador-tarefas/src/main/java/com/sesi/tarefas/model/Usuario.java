@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Usuario {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -15,13 +15,12 @@ public class Usuario {
 	private String nome;
 	private String senha;
 	
-	public Usuario() {
 		
+	public Usuario() {
 	}
 	
 	
 	public Usuario(int id, String nome, String senha) {
-		super();
 		this.id = id;
 		this.nome = nome;
 		this.senha = senha;
@@ -44,6 +43,8 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	
 	
 	
 	

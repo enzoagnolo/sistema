@@ -16,7 +16,6 @@
 		    <tr>
 		      <th scope="col">ID</th>
 		      <th scope="col">Nome</th>
-		       
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -25,14 +24,12 @@
 		      <td th:text="${categoria.nome}" class="w-75"></td>
 		    
 		    <td>
-		    <a th:href ="@{/editarCategoria/{id} (id=${categoria.id})}">
-		    	<button type="button" class="btn btn-primary">Editar</button>
-		    </a>	
-		    	
-		    	<a th:href= "@{/excluirCategoria/{id} (id=${categoria.id})}">
-		    	<button type="button" class="btn btn-danger">Excluir</button>
+		    	<a th:href="@{editarCategoria/{id} (id=${categoria.id})}"> 
+		    		<button type="button" class="btn btn-primary">Editar</button>
 		    	</a>
-		    	
+		    	<a th:href="@{excluirCategoria/{id} (id=${categoria.id})}"> 
+		 		   	<button type="button" class="btn btn-danger">Excluir</button>
+		    	</a>
 		    </td>
 		    
 		    </tr>

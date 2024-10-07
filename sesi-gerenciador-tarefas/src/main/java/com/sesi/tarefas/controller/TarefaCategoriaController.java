@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -27,14 +28,6 @@ public class TarefaCategoriaController {
 		return "listarTarefaCategoria";
 	}
 	
-	
-	@PostMapping("/salvarCategoria")
-	public String SalvarCategoria(TarefaCategoria categoria) {
-		tarefaCategoriaRepository.save(categoria);
-		return "redirect:/listarCategoria";
-		
-	}
-	
 	@GetMapping("editarCategoria/{id}")
 	public String editarCategoria(@PathVariable("id") int id, Model modelo) {
 		Optional<TarefaCategoria> categoriaOpt = tarefaCategoriaRepository.findById(id);
@@ -51,6 +44,12 @@ public class TarefaCategoriaController {
 	public String mostrarFormulario(Model modelo) {
 		modelo.addAttribute("categoria", new TarefaCategoria());
 		return "formularioTarefaCategoria";
+	}
+	
+	@PostMapping("/salvarCategoria")
+	public String salvarCategoria(@ModelAttribute TarefaCategoria categoria) {
+		tarefaCategoriaRepository.save(categoria);
+		return "redirect:/listarCategoria";
 	}
 	
 	@GetMapping("/excluirCategoria/{id}")
